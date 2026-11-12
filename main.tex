@@ -1,19 +1,39 @@
-% Compile with XeLaTeX (uses the system Carlito font -- metric-compatible with Calibri,
-% matching the reference CV's font exactly). Run: xelatex Ramitha_Abeyarathne_CV_ATS.tex
-\documentclass[10.5pt,a4paper]{article}
+% Uses the Carlito font (metric-compatible with Calibri, matching the reference CV).
+% Compiles with XeLaTeX/LuaLaTeX (preferred) or pdfLaTeX (Overleaf's default).
+% Run: xelatex main.tex
+% Note: the standard article class only supports 10pt/11pt/12pt (10.5pt is ignored).
+\documentclass[10pt,a4paper]{article}
 
 % ---- Font: Carlito (Calibri-equivalent), matched to the reference CV ----
-\usepackage{fontspec}
-\setmainfont{Carlito}
+\usepackage{iftex}
+\ifPDFTeX
+    % pdfLaTeX cannot use fontspec -- use the Carlito package instead
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage[sfdefault]{carlito}
+\else
+    % XeLaTeX / LuaLaTeX: load Carlito by file name so it is found in the TeX tree
+    % even when it is not installed as a system font
+    \usepackage{fontspec}
+    \setmainfont{Carlito}[
+        Extension      = .ttf,
+        UprightFont    = *-Regular,
+        BoldFont       = *-Bold,
+        ItalicFont     = *-Italic,
+        BoldItalicFont = *-BoldItalic
+    ]
+\fi
 
 % ---- ATS-safe layout: single column, no tables, no icons/graphics ----
 \usepackage[margin=0.65in,top=0.5in,bottom=0.5in]{geometry}
 \usepackage{enumitem}
 \usepackage{titlesec}
-\usepackage{hyperref}
 \usepackage{xcolor}
 \usepackage{parskip}
 \usepackage{setspace}
+\usepackage{xurl}        % lets long GitHub links break across lines (no overfull boxes)
+\usepackage{hyperref}    % load hyperref last
+\urlstyle{same}          % link text in the body font, not typewriter
 \setlength{\parskip}{4pt}
 \setstretch{1.03}
 
@@ -94,7 +114,7 @@ Mechanical Engineering graduate with hands-on experience in design and manufactu
 \vspace{-10pt}
 \begin{itemize}[leftmargin=18pt, itemsep=3pt, topsep=0pt, partopsep=0pt, parsep=0pt]
     \item Engineered custom 3D-printed prosthetic solutions using SolidWorks, optimizing biomechanical integrity and producing standardized technical drawings with strict geometric tolerances.
-    \item Service letter: \href{https://github.com/RamithaPrasan2000/Service-Letter-From-StrataMech-Design-Consultancy-Pvt.-Ltd.}{github.com/RamithaPrasan2000/Service-Letter-From-StrataMech-Design-Consultancy-Pvt.-Ltd.}
+    \item Service letter: \href{https://github.com/RamithaPrasan2000/Service-Letter-From-StrataMech-Design-Consultancy-Pvt.-Ltd.}{\nolinkurl{github.com/RamithaPrasan2000/Service-Letter-From-StrataMech-Design-Consultancy-Pvt.-Ltd.}}
 \end{itemize}
 \vspace{9pt}
 
@@ -102,7 +122,7 @@ Mechanical Engineering graduate with hands-on experience in design and manufactu
 \vspace{-10pt}
 \begin{itemize}[leftmargin=18pt, itemsep=3pt, topsep=0pt, partopsep=0pt, parsep=0pt]
     \item Designed and manufactured body panels from XPS moulds for a Formula Student racing team, using surface modeling, mould design, and G-code generation in HSMworks for precision manufacturing.
-    \item Projects: \href{https://github.com/RamithaPrasan2000/Team-Falcone-E-projects.git}{github.com/RamithaPrasan2000/Team-Falcone-E-projects}
+    \item Projects: \href{https://github.com/RamithaPrasan2000/Team-Falcone-E-projects.git}{\nolinkurl{github.com/RamithaPrasan2000/Team-Falcone-E-projects}}
 \end{itemize}
 \vspace{9pt}
 
@@ -111,13 +131,13 @@ Mechanical Engineering graduate with hands-on experience in design and manufactu
 \begin{itemize}[leftmargin=18pt, itemsep=3pt, topsep=0pt, partopsep=0pt, parsep=0pt]
     \item Fabricated Vega ATX bodywork and rewelding jigs while optimizing a 150 kW charger thermal system in MATLAB.
     \item Proficient in workshop machinery, metal fabrication, 3D printing, and strict safety compliance.
-    \item Internship letter and report: \href{https://github.com/RamithaPrasan2000/Internship-service-letter-and-report.git}{github.com/RamithaPrasan2000/Internship-service-letter-and-report}
+    \item Internship letter and report: \href{https://github.com/RamithaPrasan2000/Internship-service-letter-and-report.git}{\nolinkurl{github.com/RamithaPrasan2000/Internship-service-letter-and-report}}
 \end{itemize}
 \vspace{9pt}
 
 \entry{Machine Operator, Cashier \& Purchasing Officer -- Nevil Industries (Pvt) Ltd}{October 2019 -- March 2021}
 \hspace*{1.5em}Operated machinery and managed purchasing and cashier duties, ensuring efficiency and organization in production processes. \newline
-\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Service-Confirmation-Letter-Nevil-Industries-Pvt-Ltd.git}{github.com/RamithaPrasan2000/Service-Confirmation-Letter-Nevil-Industries-Pvt-Ltd}
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Service-Confirmation-Letter-Nevil-Industries-Pvt-Ltd.git}{\nolinkurl{github.com/RamithaPrasan2000/Service-Confirmation-Letter-Nevil-Industries-Pvt-Ltd}}
 
 % ------------------------------------------------------------------
 \section{EDUCATION}
@@ -140,35 +160,35 @@ Mechanical Engineering graduate with hands-on experience in design and manufactu
 
 \entry{Tubular Photobioreactor System for Tropical Countries -- Final Year Project (Group)}{2024 -- 2025}
 \hspace*{1.5em}Researched existing tubular photobioreactors, designed an optimized reactor for cultivating \textit{Haematococcus pluvialis}, and developed it using engineering principles and hands-on fabrication. \newline
-\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Tubular-photobioreactor-system-for-tropical-countries.git}{github.com/RamithaPrasan2000/Tubular-photobioreactor-system-for-tropical-countries}
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Tubular-photobioreactor-system-for-tropical-countries.git}{\nolinkurl{github.com/RamithaPrasan2000/Tubular-photobioreactor-system-for-tropical-countries}}
 
 \entry{Robot Arm with 6 Degrees of Freedom -- Self-Initiated (Group)}{2023}
 \hspace*{1.5em}Designed and manufactured a 6-DOF manually controlled robotic arm with a 200 g payload capacity. Exhibited at EXMO-2023 as the Mechanical Engineering Designer. \newline
-\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Robot-Arm-with-6-Degree-of-Freedom-.git}{github.com/RamithaPrasan2000/Robot-Arm-with-6-Degree-of-Freedom}
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Robot-Arm-with-6-Degree-of-Freedom-.git}{\nolinkurl{github.com/RamithaPrasan2000/Robot-Arm-with-6-Degree-of-Freedom}}
 
 \entry{Vega ATX Bodywork -- Intern (Individual)}{2023 -- 2024}
 \hspace*{1.5em}Designed and fabricated the Vega ATX bodywork using sheet metal, NC bending, and MIG welding, integrating seats, light mounts, panels, and seat locking systems for precision and off-road durability. \newline
-\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Vega-ATX-Bodywork.git}{github.com/RamithaPrasan2000/Vega-ATX-Bodywork}
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Vega-ATX-Bodywork.git}{\nolinkurl{github.com/RamithaPrasan2000/Vega-ATX-Bodywork}}
 
 \entry{Jigs and 3D-Printed Parts for Vega ETX -- Intern (Individual)}{2023 -- 2024}
 \hspace*{1.5em}Designed four jigs and 3D-printed parts to resolve mounting issues by welding in the Vega ETX three-wheeler chassis, streamlining manufacturing and ensuring structural integrity. \newline
-\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Jigs-and-3D-Printed-Parts-for-Vega-ETX.git}{github.com/RamithaPrasan2000/Jigs-and-3D-Printed-Parts-for-Vega-ETX}
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Jigs-and-3D-Printed-Parts-for-Vega-ETX.git}{\nolinkurl{github.com/RamithaPrasan2000/Jigs-and-3D-Printed-Parts-for-Vega-ETX}}
 
 \entry{Kayak Ergometer -- Final Year Project (Group)}{2024}
 \hspace*{1.5em}Handled mechanical design and manufacturing using woodwork, incorporating a one-way clutch bearing and balancing the system to simulate a realistic floating experience on water. \newline
-\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Kayak-ergometer.git}{github.com/RamithaPrasan2000/Kayak-ergometer}
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Kayak-ergometer.git}{\nolinkurl{github.com/RamithaPrasan2000/Kayak-ergometer}}
 
 \entry{IoT Medibox -- Semester 4 (Individual)}{2023}
 \hspace*{1.5em}Designed an IoT Medibox PCB for the EN2853 Embedded Systems Project module. \newline
-\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/IoT-medibox.git}{github.com/RamithaPrasan2000/IoT-medibox}
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/IoT-medibox.git}{\nolinkurl{github.com/RamithaPrasan2000/IoT-medibox}}
 
 \entry{Bicycle Brake System Reverse Engineering -- Semester 3 (Group)}{2023}
 \hspace*{1.5em}Analyzed and redesigned a bicycle brake system to improve performance and safety. \newline
-\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Bicycle-brake-system-reverse-engineering.git}{github.com/RamithaPrasan2000/Bicycle-brake-system-reverse-engineering}
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Bicycle-brake-system-reverse-engineering.git}{\nolinkurl{github.com/RamithaPrasan2000/Bicycle-brake-system-reverse-engineering}}
 
 \entry{Freelance Design Projects -- Fiverr}{2022}
 \hspace*{1.5em}Custom hood rack, coffee machine enclosure, conceptual tricycle. \newline
-\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Free-Lancing-projects.git}{github.com/RamithaPrasan2000/Free-Lancing-projects}
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Free-Lancing-projects.git}{\nolinkurl{github.com/RamithaPrasan2000/Free-Lancing-projects}}
 
 % ------------------------------------------------------------------
 \section{ACHIEVEMENTS \& AWARDS}
@@ -192,7 +212,7 @@ Mechanical Engineering graduate with hands-on experience in design and manufactu
     \item Excel for Project Management -- LinkedIn Learning (September 2025)
     \item Writing Formal Business Letters and Emails -- LinkedIn Learning (August 2025)
     \item Writing in Plain Language -- LinkedIn Learning (August 2025)
-    \item Certificates: \href{https://github.com/RamithaPrasan2000/Professional-Development-Certifications}{github.com/RamithaPrasan2000/Professional-Development-Certifications}
+    \item Certificates: \href{https://github.com/RamithaPrasan2000/Professional-Development-Certifications}{\nolinkurl{github.com/RamithaPrasan2000/Professional-Development-Certifications}}
 \end{itemize}
 \vspace{7pt}
 
