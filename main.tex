@@ -1,0 +1,207 @@
+% Compile with XeLaTeX (uses the system Carlito font -- metric-compatible with Calibri,
+% matching the reference CV's font exactly). Run: xelatex Ramitha_Abeyarathne_CV_ATS.tex
+\documentclass[10.5pt,a4paper]{article}
+
+% ---- Font: Carlito (Calibri-equivalent), matched to the reference CV ----
+\usepackage{fontspec}
+\setmainfont{Carlito}
+
+% ---- ATS-safe layout: single column, no tables, no icons/graphics ----
+\usepackage[margin=0.65in,top=0.5in,bottom=0.5in]{geometry}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{setspace}
+\setlength{\parskip}{4pt}
+\setstretch{1.03}
+
+% ---- Colors matched from the reference CV ----
+\definecolor{navy}{RGB}{31,56,100}     % name / section headers / thick header rule
+\definecolor{linkblue}{RGB}{17,85,204} % hyperlinks
+\definecolor{rulegray}{RGB}{170,170,170} % thin rule under section headers
+\definecolor{dategray}{RGB}{34,34,34}  % job dates (near-black, italic)
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkblue,
+    urlcolor=linkblue,
+    pdftitle={Ramitha Abeyarathna - CV},
+    pdfauthor={Ramitha Abeyarathna}
+}
+
+\setlength{\parindent}{0pt}
+\pagenumbering{gobble}
+
+% Section headers: navy bold caps, left-aligned, thin gray rule beneath -- matches reference
+\titleformat{\section}{\large\bfseries\color{navy}}{}{0em}{}[{\color{rulegray}\titlerule[0.6pt]}]
+\titlespacing{\section}{0pt}{10pt}{5pt}
+
+% Job/role entry: bold title left, italic dark-gray dates right, italic company below
+\newcommand{\role}[3]{%
+    \textbf{#1} \hfill {\itshape\color{dategray}#2}\\
+    \textit{#3}\\[-2pt]
+}
+
+% Simple entry (education/projects): bold title left, dates right
+\newcommand{\entry}[2]{%
+    \textbf{#1} \hfill {\itshape\color{dategray}#2}\\[2pt]
+}
+
+\begin{document}
+
+% ------------------------------------------------------------------
+% HEADER
+% ------------------------------------------------------------------
+\begin{center}
+    {\LARGE \textbf{\textcolor{navy}{RAMITHA ABEYARATHNA}}}\\[3pt]
+    {\bfseries MECHANICAL DESIGN ENGINEER}\\[5pt]
+    \small
+    Singapore 458556 \;|\; +65 9135 2124 \;|\;
+    \href{mailto:dramithaprashan2000@gmail.com}{dramithaprashan2000@gmail.com} \;|\;
+    \href{https://linkedin.com/in/ramitha-abeyarathne-830b50217}{LinkedIn Profile} \;|\;
+    \href{https://github.com/RamithaPrasan2000}{GitHub Profile}
+\end{center}
+\vspace{4pt}
+{\color{navy}\hrule height 1.2pt}
+\vspace{2pt}
+
+% ------------------------------------------------------------------
+\section{PROFILE}
+Mechanical Engineering graduate with hands-on experience in design and manufacturing. Highly skilled in SolidWorks for advanced 3D modeling and surface modeling. Experienced in prototyping and solving engineering challenges. Collaborative problem-solver eager to contribute to innovative projects in mechatronics and robotics.
+
+% ------------------------------------------------------------------
+\section{TECHNICAL SKILLS}
+\textbf{CAD / CAM:} SolidWorks, AutoCAD, HSMworks, NX \quad
+\textbf{Simulation \& Analysis:} Ansys, MATLAB, FEA, Thermal Analysis \quad
+\textbf{Manufacturing \& Prototyping:} 3D Printing, MIG Welding, NC Bending, Sheet Metal Fabrication, Mould Design, DFM/DFA \quad
+\textbf{Programming \& Software:} Python, Adobe Illustrator, MS Word, MS Excel
+
+\textbf{Interest Areas:} Surface Modeling, Product Design and Development, Mould Design, Materials Science and Selection, Design for Manufacturability, Mechatronics and Robotics
+
+% ------------------------------------------------------------------
+\section{WORK EXPERIENCE}
+
+\role{Visiting Researcher}{August 2026 -- Present}{Singapore University of Technology and Design, ROAR Lab}
+\vspace{-10pt}
+\begin{itemize}[leftmargin=18pt, itemsep=3pt, topsep=0pt, partopsep=0pt, parsep=0pt]
+    \item Serving as a Visiting Researcher at the SUTD ROAR Lab, focusing on mechanical design, prototyping, and the development of novel robotic systems.
+\end{itemize}
+\vspace{9pt}
+
+\role{Mechanical Design Engineer}{September 2025 -- July 2026}{StrataMech Pvt. Ltd.}
+\vspace{-10pt}
+\begin{itemize}[leftmargin=18pt, itemsep=3pt, topsep=0pt, partopsep=0pt, parsep=0pt]
+    \item Engineered custom 3D-printed prosthetic solutions using SolidWorks, optimizing biomechanical integrity and producing standardized technical drawings with strict geometric tolerances.
+    \item Service letter: \href{https://github.com/RamithaPrasan2000/Service-Letter-From-StrataMech-Design-Consultancy-Pvt.-Ltd.}{github.com/RamithaPrasan2000/Service-Letter-From-StrataMech-Design-Consultancy-Pvt.-Ltd.}
+\end{itemize}
+\vspace{9pt}
+
+\role{Aerodynamics Engineer}{May 2023 -- July 2025}{Team Falcone E}
+\vspace{-10pt}
+\begin{itemize}[leftmargin=18pt, itemsep=3pt, topsep=0pt, partopsep=0pt, parsep=0pt]
+    \item Designed and manufactured body panels from XPS moulds for a Formula Student racing team, using surface modeling, mould design, and G-code generation in HSMworks for precision manufacturing.
+    \item Projects: \href{https://github.com/RamithaPrasan2000/Team-Falcone-E-projects.git}{github.com/RamithaPrasan2000/Team-Falcone-E-projects}
+\end{itemize}
+\vspace{9pt}
+
+\role{Trainee Mechanical Engineer}{December 2023 -- May 2024}{Vega Innovations (Pvt) Ltd}
+\vspace{-10pt}
+\begin{itemize}[leftmargin=18pt, itemsep=3pt, topsep=0pt, partopsep=0pt, parsep=0pt]
+    \item Fabricated Vega ATX bodywork and rewelding jigs while optimizing a 150 kW charger thermal system in MATLAB.
+    \item Proficient in workshop machinery, metal fabrication, 3D printing, and strict safety compliance.
+    \item Internship letter and report: \href{https://github.com/RamithaPrasan2000/Internship-service-letter-and-report.git}{github.com/RamithaPrasan2000/Internship-service-letter-and-report}
+\end{itemize}
+\vspace{9pt}
+
+\entry{Machine Operator, Cashier \& Purchasing Officer -- Nevil Industries (Pvt) Ltd}{October 2019 -- March 2021}
+\hspace*{1.5em}Operated machinery and managed purchasing and cashier duties, ensuring efficiency and organization in production processes. \newline
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Service-Confirmation-Letter-Nevil-Industries-Pvt-Ltd.git}{github.com/RamithaPrasan2000/Service-Confirmation-Letter-Nevil-Industries-Pvt-Ltd}
+
+% ------------------------------------------------------------------
+\section{EDUCATION}
+
+\entry{B.Sc (Hons) in Engineering, Mechanical Engineering}{June 2021 -- June 2025}
+\hspace*{1.5em}University of Moratuwa, Bandaranayake Mawatha, Moratuwa 10400, Sri Lanka
+
+\entry{Residential English Course}{September 2019 -- November 2019}
+\hspace*{1.5em}St. Joseph Vaz Institute, Kurunegala \;--\;
+\href{https://github.com/RamithaPrasan2000/Residential-English-Course-Certificates.git}{Certificates}
+
+\entry{G.C.E. Advanced Level -- Physical Science}{February 2017 -- August 2019}
+\hspace*{1.5em}3 A's (District Rank 6, Z-score 2.3171), St. Joseph Vaz College, Wennappuwa
+
+\entry{G.C.E. Ordinary Level}{January 2006 -- December 2016}
+\hspace*{1.5em}7 A's and 2 B's, St. Joseph Vaz College, Wennappuwa
+
+% ------------------------------------------------------------------
+\section{PROJECTS}
+
+\entry{Tubular Photobioreactor System for Tropical Countries -- Final Year Project (Group)}{2024 -- 2025}
+\hspace*{1.5em}Researched existing tubular photobioreactors, designed an optimized reactor for cultivating \textit{Haematococcus pluvialis}, and developed it using engineering principles and hands-on fabrication. \newline
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Tubular-photobioreactor-system-for-tropical-countries.git}{github.com/RamithaPrasan2000/Tubular-photobioreactor-system-for-tropical-countries}
+
+\entry{Robot Arm with 6 Degrees of Freedom -- Self-Initiated (Group)}{2023}
+\hspace*{1.5em}Designed and manufactured a 6-DOF manually controlled robotic arm with a 200 g payload capacity. Exhibited at EXMO-2023 as the Mechanical Engineering Designer. \newline
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Robot-Arm-with-6-Degree-of-Freedom-.git}{github.com/RamithaPrasan2000/Robot-Arm-with-6-Degree-of-Freedom}
+
+\entry{Vega ATX Bodywork -- Intern (Individual)}{2023 -- 2024}
+\hspace*{1.5em}Designed and fabricated the Vega ATX bodywork using sheet metal, NC bending, and MIG welding, integrating seats, light mounts, panels, and seat locking systems for precision and off-road durability. \newline
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Vega-ATX-Bodywork.git}{github.com/RamithaPrasan2000/Vega-ATX-Bodywork}
+
+\entry{Jigs and 3D-Printed Parts for Vega ETX -- Intern (Individual)}{2023 -- 2024}
+\hspace*{1.5em}Designed four jigs and 3D-printed parts to resolve mounting issues by welding in the Vega ETX three-wheeler chassis, streamlining manufacturing and ensuring structural integrity. \newline
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Jigs-and-3D-Printed-Parts-for-Vega-ETX.git}{github.com/RamithaPrasan2000/Jigs-and-3D-Printed-Parts-for-Vega-ETX}
+
+\entry{Kayak Ergometer -- Final Year Project (Group)}{2024}
+\hspace*{1.5em}Handled mechanical design and manufacturing using woodwork, incorporating a one-way clutch bearing and balancing the system to simulate a realistic floating experience on water. \newline
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Kayak-ergometer.git}{github.com/RamithaPrasan2000/Kayak-ergometer}
+
+\entry{IoT Medibox -- Semester 4 (Individual)}{2023}
+\hspace*{1.5em}Designed an IoT Medibox PCB for the EN2853 Embedded Systems Project module. \newline
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/IoT-medibox.git}{github.com/RamithaPrasan2000/IoT-medibox}
+
+\entry{Bicycle Brake System Reverse Engineering -- Semester 3 (Group)}{2023}
+\hspace*{1.5em}Analyzed and redesigned a bicycle brake system to improve performance and safety. \newline
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Bicycle-brake-system-reverse-engineering.git}{github.com/RamithaPrasan2000/Bicycle-brake-system-reverse-engineering}
+
+\entry{Freelance Design Projects -- Fiverr}{2022}
+\hspace*{1.5em}Custom hood rack, coffee machine enclosure, conceptual tricycle. \newline
+\hspace*{1.5em}\href{https://github.com/RamithaPrasan2000/Free-Lancing-projects.git}{github.com/RamithaPrasan2000/Free-Lancing-projects}
+
+% ------------------------------------------------------------------
+\section{ACHIEVEMENTS \& AWARDS}
+\vspace{-2pt}
+\begin{itemize}[leftmargin=18pt, itemsep=3pt, topsep=0pt, partopsep=0pt, parsep=0pt]
+    \item 3rd Place, Impacto Robotics Challenge (2024)
+    \item 8th Place, CAD EAGER Competition by IESL (2024)
+    \item Participant, CAD EAGER Competition by IESL (2023)
+\end{itemize}
+\vspace{7pt}
+
+% ------------------------------------------------------------------
+\section{CERTIFICATIONS \& PROFESSIONAL DEVELOPMENT}
+\vspace{-2pt}
+\begin{itemize}[leftmargin=18pt, itemsep=3pt, topsep=0pt, partopsep=0pt, parsep=0pt]
+    \item SOLIDWORKS: Advanced Engineering Drawings -- LinkedIn Learning (September 2025)
+    \item SOLIDWORKS: Simulation for Finite Element Analysis -- LinkedIn Learning (September 2025)
+    \item Introduction to Geometric Dimensioning and Tolerancing -- LinkedIn Learning (August 2025)
+    \item Engineering Drawings for Manufacturing -- LinkedIn Learning (August 2025)
+    \item Project Management Foundations -- LinkedIn Learning (August 2025)
+    \item Excel for Project Management -- LinkedIn Learning (September 2025)
+    \item Writing Formal Business Letters and Emails -- LinkedIn Learning (August 2025)
+    \item Writing in Plain Language -- LinkedIn Learning (August 2025)
+    \item Certificates: \href{https://github.com/RamithaPrasan2000/Professional-Development-Certifications}{github.com/RamithaPrasan2000/Professional-Development-Certifications}
+\end{itemize}
+\vspace{7pt}
+
+% ------------------------------------------------------------------
+\section{SOFT SKILLS}
+Problem-Solving \& Analytical Thinking \;\textbullet\; Creativity in Design \;\textbullet\; Collaboration \& Teamwork \;\textbullet\; Adaptability and Lifelong Learning \;\textbullet\; Project Coordination \;\textbullet\; Time Management
+
+% ------------------------------------------------------------------
+\section{EXTRACURRICULAR ACTIVITIES}
+Engineer -- Falcone E Racing \;\textbullet\; Member -- Mora Soccer \;\textbullet\; Member -- Sasnaka Sansada \;\textbullet\; Member -- School Athletic Team \;\textbullet\; Member -- School Football Team \;\textbullet\; Freelancer -- Fiverr
+
+\end{document}
